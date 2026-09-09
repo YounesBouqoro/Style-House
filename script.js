@@ -2,17 +2,17 @@ const galleryImages = [
   {
     src: "assets/images/style-house-exterior.webp",
     alt: "Die Fassade des Style House Friseursalons",
-    label: "Unser Salon in Derendorf",
+    label: "Hier findest du uns",
   },
   {
     src: "assets/images/style-house-interior.webp",
     alt: "Innenansicht des Style House mit Barberstühlen",
-    label: "Mitten im Handwerk",
+    label: "Bei uns im Salon",
   },
   {
     src: "assets/images/style-house-heritage.webp",
     alt: "Historische Fotografie klassischer Barbiere im Style House",
-    label: "Tradition im Detail",
+    label: "Barber-Handwerk mit Geschichte",
   },
 ];
 
@@ -77,7 +77,13 @@ const updateOpenStatus = () => {
   const statusText = document.querySelector("[data-open-status]");
   const statusDot = document.querySelector("[data-status-dot]");
 
-  if (statusText) statusText.textContent = isOpen ? "Jetzt geöffnet · bis 20 Uhr" : day === 0 ? "Heute geschlossen" : "Heute ab 10 Uhr geöffnet";
+  if (statusText) {
+    if (isOpen) statusText.textContent = "Wir haben geöffnet · bis 20 Uhr";
+    else if (day === 0) statusText.textContent = "Heute ist Ruhetag · Montag ab 10 Uhr";
+    else if (minutes < 600) statusText.textContent = "Heute ab 10 Uhr geöffnet";
+    else if (day === 6) statusText.textContent = "Für heute Feierabend · Montag ab 10 Uhr";
+    else statusText.textContent = "Für heute Feierabend · morgen ab 10 Uhr";
+  }
   statusDot?.classList.toggle("closed", !isOpen);
 };
 
