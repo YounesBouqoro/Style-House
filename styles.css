@@ -90,15 +90,19 @@ h3 { font-size: clamp(1.7rem, 2.2vw, 2.2rem); }
 }
 .site-header.is-scrolled { min-height: 68px; }
 .brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; }
-.brand-mark {
-  display: grid;
-  width: 44px;
+.brand-logo {
+  display: block;
+  width: 52px;
   aspect-ratio: 1;
-  place-items: center;
-  border: 1px solid var(--gold);
+  flex: 0 0 auto;
   border-radius: 50%;
-  color: var(--gold-light);
-  font: 700 0.82rem/1 Georgia, serif;
+  background: var(--gold);
+  overflow: hidden;
+}
+.brand-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 .brand-copy { display: grid; }
 .brand-copy strong { font: 700 1.05rem/1.15 Georgia, serif; letter-spacing: 0.04em; text-transform: uppercase; }
@@ -233,6 +237,7 @@ address { font-style: normal; }
 .site-footer { padding: 42px 0 30px; background: #0c0b09; }
 .footer-layout { display: grid; grid-template-columns: 1fr auto; gap: 28px; align-items: center; }
 .footer-layout > p { margin: 0; color: #8f887f; font-size: 0.88rem; }
+.footer-brand .brand-logo { width: 64px; }
 .copyright { grid-column: 1 / -1; padding-top: 20px; border-top: 1px solid var(--line-dark); }
 .mobile-actions { display: none; }
 
@@ -279,7 +284,8 @@ address { font-style: normal; }
   h2 { font-size: clamp(2.15rem, 10vw, 3rem); }
   .site-header { min-height: 68px; padding-inline: 16px; }
   .site-header.is-scrolled { min-height: 64px; }
-  .brand-mark { width: 40px; }
+  .brand-logo { width: 44px; }
+  .footer-brand .brand-logo { width: 58px; }
   .brand-copy small { display: none; }
   .hero { padding-top: 68px; }
   .hero-layout { gap: 34px; padding-block: 44px 60px; }
